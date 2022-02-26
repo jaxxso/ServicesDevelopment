@@ -26,7 +26,7 @@ namespace WebDev.api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddRazorPages();
+            services.AddRazorPages();
             services.AddControllers();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CnnStr")));
 
@@ -55,6 +55,10 @@ namespace WebDev.api
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "Users",
+                    pattern: "{controller=Users}/{action=Index}/{id?}");
+                
                 endpoints.MapRazorPages();
             });
         }

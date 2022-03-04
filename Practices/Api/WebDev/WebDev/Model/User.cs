@@ -1,6 +1,12 @@
-﻿namespace WebDev.api.Model
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace WebDev.Api.Model
 {
     using System.ComponentModel.DataAnnotations;
+
     public class User
     {
         [Key]

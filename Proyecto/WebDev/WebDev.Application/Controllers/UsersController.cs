@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using WebDev.Application.Models;
 using System.Linq;
+using WebDev.Application.Config;
+using WebDev.Services;
+using Microsoft.Extensions.Options;
 
 namespace WebDev.Application.Controllers
 {
@@ -10,9 +13,12 @@ namespace WebDev.Application.Controllers
     {
         private static List<User> _userList;
         private static int numUsers;
+        private readonly ApiConfiguration _apiConfiguration;
+        
 
-        public UsersController()
+        public UsersController(IOptions<ApiConfiguration> apiConfiguration)
         {
+            _apiConfiguration = apiConfiguration.Value;
             // Mock User List
             if (_userList is null)
             {

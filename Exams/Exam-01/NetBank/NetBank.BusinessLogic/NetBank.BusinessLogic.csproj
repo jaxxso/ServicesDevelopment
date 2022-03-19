@@ -4,4 +4,13 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NPOI" Version="2.5.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetBank.DataAccess\NetBank.DataAccess.csproj" />
+    <ProjectReference Include="..\NetBank.Models\NetBank.Models.csproj" />
+  </ItemGroup>
+
 </Project>

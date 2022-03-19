@@ -1,10 +1,10 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NetBank.BusinessLogic;
 using NetBank.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace NetBank.Api.Controllers
@@ -24,6 +24,11 @@ namespace NetBank.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IList<ReportedCard>>> GetAllReportedCards()
         {
+            var reportedCards = await _reportedCardBL.GetAllReportedCards();
+            if (reportedCards is null)
+            {
+                return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+            }
             return Ok(await _reportedCardBL.GetAllReportedCards());
         }
 
@@ -31,6 +36,11 @@ namespace NetBank.Api.Controllers
         [HttpGet("IssuingNetwork/{issuingNetworkName}")]
         public async Task<ActionResult<IList<ReportedCard>>> GetAllReportedCardsByIssuingNetworkName(string issuingNetworkName)
         {
+            var _issuingNetworks = await _reportedCardBL.GetAllReportedCardsByIssuingNetworkName(issuingNetworkName);
+            if (_issuingNetworks is EmptyResult)
+            {
+                return NotFound("The Network " + issuingNetworkName + " is not exist");
+            }
             return Ok(await _reportedCardBL.GetAllReportedCardsByIssuingNetworkName(issuingNetworkName));
         }
 
@@ -38,6 +48,12 @@ namespace NetBank.Api.Controllers
         [HttpGet("{creditCardNumber}")]
         public async Task<ActionResult<IList<ReportedCard>>> GetReportedCard(string creditCardNumber)
         {
+            var _creditCardNumber = await _reportedCardBL.GetReportedCard(creditCardNumber);
+            if (_creditCardNumber is null)
+            {
+                NotFound("The Credit Card Number " + creditCardNumber + " is not exist");
+            }
+
             return Ok(await _reportedCardBL.GetReportedCard(creditCardNumber));
         }
 
@@ -48,7 +64,7 @@ namespace NetBank.Api.Controllers
             {
                 return Ok("Credit card is valid");
             }
-            return Ok("Credit card is not valid");
+            return BadRequest("Credit card is not valid");
         }
 
         [HttpPut("{creditCardNumber}")]

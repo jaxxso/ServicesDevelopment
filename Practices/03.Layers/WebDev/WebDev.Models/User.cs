@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebDev.Application.Models
-{ 
+namespace WebDev.Models
+{
     public class User
     {
         [Key]

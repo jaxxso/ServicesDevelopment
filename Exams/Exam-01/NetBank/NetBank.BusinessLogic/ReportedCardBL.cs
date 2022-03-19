@@ -13,27 +13,27 @@ namespace NetBank.DataAccess
 
         public ReportedCardBL(ReportedCardDA reportedCardDA)
         {
-            this._reportedCardDA = reportedCardDA;
+            _reportedCardDA = reportedCardDA;
         }
 
         public async Task<IList<ReportedCard>> GetAllReportedCards()
         {
-            return await _appDbContext.ReportedCards.ToListAsync();
+            return await _reportedCardDA.GetAllReportedCards();
 
         }
         public async Task<IList<ReportedCard>> GetAllReportedCardsByIssuingNetworkName(string issuingIssuingNetworkName)
         {
-            return await _appDbContext.ReportedCards.Where(rc => rc.IssuingNetwork == issuingIssuingNetworkName).ToListAsync();
+            return await _reportedCardDA.GetAllReportedCardsByIssuingNetworkName(issuingIssuingNetworkName);
 
         }
         public async Task<ReportedCard> GetReportedCard(string CreditCardNumber)
         {
-            return await _appDbContext.ReportedCards.FirstOrDefaultAsync(rc => rc.CreditCardNumber == CreditCardNumber);
+            return await _reportedCardDA.GetReportedCard(CreditCardNumber);
 
         }
         public async Task<string> PutCreditCardReactivated(string CreditCardNumber)
         {
-            var reportedCard = await _appDbContext.ReportedCards.FirstOrDefaultAsync(rc => rc.CreditCardNumber == CreditCardNumber);
+            var reportedCard = await _reportedCardDA.PutCreditCardReactivated(CreditCardNumber);
 
 
             if (reportedCard is null)
@@ -43,7 +43,7 @@ namespace NetBank.DataAccess
 
             reportedCard.StatusCard = "Recovered";
             reportedCard.LastUpdatedDate = DateTime.Now;
-            await _appDbContext.SaveChangesAsync();
+            await _reportedCardDA.SaveChangesAsync();
 
             return "Card Recovered";
 

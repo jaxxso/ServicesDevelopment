@@ -35,7 +35,7 @@ namespace NetBank.DataAccess
             var reportedCard = await _appDbContext.ReportedCards.FirstOrDefaultAsync(rc => rc.CreditCardNumber == CreditCardNumber);
 
 
-            if (reportedCard is null)
+            if (reportedCard == null)
             {
                 return "Credit Card Not found";
             }

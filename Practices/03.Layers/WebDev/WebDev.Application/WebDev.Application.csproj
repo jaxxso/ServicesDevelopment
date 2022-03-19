@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebDev.Models\WebDev.Models.csproj" />
     <ProjectReference Include="..\WebDev.services\WebDev.services.csproj" />
   </ItemGroup>
 

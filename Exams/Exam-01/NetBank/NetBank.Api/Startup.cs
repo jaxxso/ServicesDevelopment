@@ -32,14 +32,13 @@ namespace NetBank.Api
         {
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CnnStr")));
             services.AddControllers();
-            services.AddMvc();
-            services.AddScoped<ReportedCardDA>();
-            services.AddScoped<ReportedCardBL>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NetBank.Api", Version = "v1" });
             });
-            
+            services.AddScoped<ReportedCardDA>();
+            services.AddScoped<ReportedCardBL>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,7 +59,7 @@ namespace NetBank.Api
 
             app.UseEndpoints(endpoints =>
             {
-               
+                endpoints.MapControllers();
             });
         }
     }

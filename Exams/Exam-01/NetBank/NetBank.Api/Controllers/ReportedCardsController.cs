@@ -24,7 +24,7 @@ namespace NetBank.Api.Controllers
         }
 
 
-        [HttpGet("IssuingNetwork/{issuingNetworkName}}")]
+        [HttpGet("IssuingNetwork/{issuingNetworkName}")]
         public async Task<ActionResult<IList<ReportedCard>>> GetAllReportedCardsByIssuingNetworkName(string issuingNetwork)
         {
             return Ok(await _reportedCardBL.GetAllReportedCardsByIssuingNetworkName(issuingNetwork));
@@ -40,7 +40,7 @@ namespace NetBank.Api.Controllers
 
 
 
-        [HttpGet("{creditCardNumber}")]
+        [HttpPut("{creditCardNumber}")]
         public async Task<ActionResult<string>> PutCreditCardReactivated(string creditCardNumber)
         {
             return Ok(await _reportedCardBL.PutCreditCardReactivated(creditCardNumber));

@@ -31,15 +31,15 @@ namespace NetBank.DataAccess
 
         }
 
-        public async Task<ReportedCard> GetReportedCard(string CreditCardNumber)
+        public async Task<ReportedCard> GetReportedCard(string creditCardNumber)
         {
-            return await _appDbContext.ReportedCards.FirstOrDefaultAsync(rc => rc.CreditCardNumber == CreditCardNumber);
+            return await _appDbContext.ReportedCards.FirstOrDefaultAsync(rc => rc.CreditCardNumber == creditCardNumber);
 
         }
 
-        public async Task<string> PutCreditCardReactivated(string CreditCardNumber)
+        public async Task<string> PutCreditCardReactivated(string creditCardNumber)
         {
-            var reportedCard = await _appDbContext.ReportedCards.FirstOrDefaultAsync(rc => rc.CreditCardNumber == CreditCardNumber);
+            var reportedCard = await _appDbContext.ReportedCards.FirstOrDefaultAsync(rc => rc.CreditCardNumber == creditCardNumber);
 
 
             if (reportedCard != null)

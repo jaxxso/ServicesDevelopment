@@ -42,16 +42,7 @@ namespace NetBank.BusinessLogic
             }
             return (sum % diez) == cero;
         }
-        private static StringBuilder GetDigits(string creditCardNumber)
-        {
-            var digitsOnly = new StringBuilder();
-            foreach (var character in creditCardNumber)
-            {
-                if (char.IsDigit(character))
-                    digitsOnly.Append(character);
-            }
-            return digitsOnly;
-        }
+    
     }
 
 }

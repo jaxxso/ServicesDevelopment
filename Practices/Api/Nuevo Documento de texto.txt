@@ -1,0 +1,34 @@
+public class UserBL
+    {
+        private readonly UserDA _userDA;
+
+        public UserBL(UserDA userDA)
+        {
+            _userDA = userDA;
+        }
+
+        public async Task<IList<User>> GetUsers()
+        {
+            return await _userDA.GetUsers();
+        }
+
+        public async Task<User> GetUserById(int id)
+        {
+            return await _userDA.GetUserById(id);
+        }
+
+        public void NewUser(User user)
+        {
+  
+            _userDA.NewUser(user);
+        }
+
+        public void UpdateUser(int id, User user)
+        {
+            _userDA.UpdateUser(user);
+        }
+
+        public void DeleteUser(int id)
+        {
+            _userDA.DeleteUser(id);
+        }

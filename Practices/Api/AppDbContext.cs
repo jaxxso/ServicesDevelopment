@@ -1,7 +1,7 @@
 ﻿namespace WebDev.Api.Context
 {
     using Microsoft.EntityFrameworkCore;
-    using WebDev.Api.Model;
+    using WebDev.Models;
 
     public class AppDbContext : DbContext
     {

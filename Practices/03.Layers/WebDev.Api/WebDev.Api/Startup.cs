@@ -57,6 +57,8 @@ namespace WebDev.Api
 
             app.UseAuthorization();
 
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

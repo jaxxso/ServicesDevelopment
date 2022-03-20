@@ -17,4 +17,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WebDev.Models\WebDev.Models.csproj" />
+    <ProjectReference Include="..\WebDev.Services\WebDev.Services.csproj" />
+  </ItemGroup>
+
 </Project>

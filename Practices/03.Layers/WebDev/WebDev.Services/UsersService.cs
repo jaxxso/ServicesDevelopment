@@ -79,7 +79,6 @@ namespace WebDev.Services
                 //Deserializing the response recieved from web api and storing into the Employee list
                 user = JsonConvert.DeserializeObject<UserDto>(responseContent);
             }
-
             return user;
         }
 

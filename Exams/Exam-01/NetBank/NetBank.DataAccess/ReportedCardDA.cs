@@ -30,9 +30,9 @@ namespace NetBank.DataAccess
             return await _context.ReportedCards.Where(e => e.IssuingNetwork == issuingNetwork).ToListAsync();
         }
 
-        public async Task<List<ReportedCard>> GetReportedCard(string CreditCardNumber)
+        public async Task<List<ReportedCard>> GetReportedCard(string creditCardNumber)
         {
-            return await _context.ReportedCards.Where(p => p.CreditCardNumber == CreditCardNumber).ToListAsync();
+            return await _context.ReportedCards.Where(p => p.CreditCardNumber == creditCardNumber).ToListAsync();
         }
 
         public async Task<String> PutCreditCardReactivated(string CreditCardNumber)

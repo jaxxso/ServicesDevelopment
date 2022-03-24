@@ -6,7 +6,7 @@ namespace NetBank.BusinessLogic
    public static class CreditCardBL
    {
       private const int MAX_ADDEND = 9;
-      private const int MAX_CREDIT_CARD_LENGTH = 18;
+      private const int MAX_CREDIT_CARD_LENGTH = 19;
       private const int MIN_CREDIT_CARD_LENGTH = 13;
       private const int MOD_10 = 10;
       private const int MULTIPLY_NUMBER = 2;

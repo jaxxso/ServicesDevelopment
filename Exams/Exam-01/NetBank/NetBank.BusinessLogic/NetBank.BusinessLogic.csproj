@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\NetBank.Models.csproj" />
     <ProjectReference Include="..\NetBank.DataAccess\NetBank.DataAccess.csproj" />
   </ItemGroup>
 

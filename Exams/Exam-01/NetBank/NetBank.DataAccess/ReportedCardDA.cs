@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Netbank.Api.Context;
-using Netbank.DataAccess;
+using NetBank.DataAccess.Context;
 using NetBank.Models;
 using System;
 using System.Collections.Generic;
@@ -13,12 +12,13 @@ namespace NetBank.DataAccess
     public class ReportedCardDA
     {
         private readonly AppDbContext _context;
+
         public ReportedCardDA(AppDbContext context)
         {
             _context = context;
         }
 
-        public async Task<IList<ReportedCard>> GetAllReportedCards()
+        public async Task<List<ReportedCard>> GetAllReportedCards()
         {
             return await _context.ReportedCards.ToListAsync();
         }
@@ -28,27 +28,26 @@ namespace NetBank.DataAccess
             return await _context.ReportedCards.Where(e => e.IssuingNetwork == issuingNetwork).ToListAsync();
         }
 
-        public async Task<List<ReportedCard>> GetReportedCard(string creditCardNumber)
+        public async Task<List<ReportedCard>> GetReportedCard(string CreditCardNumber)
         {
-            return await _context.ReportedCards.Where(a => a.CreditCardNumber == creditCardNumber).ToListAsync();
+            return await _context.ReportedCards.Where(p => p.CreditCardNumber == CreditCardNumber).ToListAsync();
         }
 
-        public async Task<string> PutCreditCardReactivated(string creditCardNumber)
+        public async Task<String> PutCreditCardReactivated(string CreditCardNumber)
         {
-            var reportedCard = _context.ReportedCards.FirstOrDefault(e => e.CreditCardNumber == creditCardNumber);
+            var reportedCard = _context.ReportedCards.FirstOrDefault(p => p.CreditCardNumber == CreditCardNumber);
 
-            if (reportedCard is null)
+            if (reportedCard != null)
             {
-                return "error no found";
+                return "Credit Card Not found";
             }
             else
             {
                 reportedCard.StatusCard = "Recovered";
-                _context.ReportedCards.FirstOrDefault(e => e.CreditCardNumber == creditCardNumber).LastUpdatedDate = DateTime.Now;
+                reportedCard.LastUpdatedDate = DateTime.Now;
                 await _context.SaveChangesAsync();
-                return "Recovered";
+                return "Credit Card Recovered";
             }
         }
-
     }
 }

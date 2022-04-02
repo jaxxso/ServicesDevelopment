@@ -1,52 +1,51 @@
 ﻿using System;
 using System.Text;
+using System.Linq;
 
-namespace NetBank.BussisnesLogic
+namespace NetBank.BusinessLogic
 {
-    public class CreditCardBL
+    public static class CreditCardBL
     {
-        public static class LuhnAlgorithmValidator
+        public static bool IsValid(string creditCardNumber)
         {
-            public static bool IsValid(string creditCardNumber)
+            var digitsOnly = GetDigits(creditCardNumber);
+            int maxCreditNumber = 18;
+            int minCreditNumber = 15;
+            if (digitsOnly.Length > maxCreditNumber || digitsOnly.Length < minCreditNumber) return false;
+
+            int sum = 0;
+            int digit = 0;
+            int addend = 0;
+            bool timesTwo = false;
+
+            for (var i = digitsOnly.Length - 1; i >= 0; i--)
             {
-                var digitsOnly = GetDigits(creditCardNumber);
-
-                if (digitsOnly.Length > 18 || digitsOnly.Length < 15) return false;
-
-                int sum = 0;
-                int digit = 0;
-                int addend = 0;
-                bool timesTwo = false;
-
-                for (var i = digitsOnly.Length - 1; i >= 0; i--)
+                digit = int.Parse(digitsOnly.ToString(i, 1));
+                if (timesTwo)
                 {
-                    digit = int.Parse(digitsOnly.ToString(i, 1));
-                    if (timesTwo)
-                    {
-                        addend = digit * 2;
-                        if (addend > 9)
-                            addend -= 9;
-                    }
-                    else
-                        addend = digit;
-
-                    sum += addend;
-
-                    timesTwo = !timesTwo;
-
+                    addend = digit * 2;
+                    if (addend > 9)
+                        addend -= 9;
                 }
-                return (sum % 10) == 0;
+                else
+                    addend = digit;
+
+                sum += addend;
+
+                timesTwo = !timesTwo;
+
             }
-            private static StringBuilder GetDigits(string creditCardNumber)
+            return (sum % 10) == 0;
+        }
+        private static StringBuilder GetDigits(string creditCardNumber)
+        {
+            var digitsOnly = new StringBuilder();
+            foreach (var character in creditCardNumber)
             {
-                var digitsOnly = new StringBuilder();
-                foreach (var character in creditCardNumber)
-                {
-                    if (char.IsDigit(character))
-                        digitsOnly.Append(character);
-                }
-                return digitsOnly;
+                if (char.IsDigit(character))
+                    digitsOnly.Append(character);
             }
+            return digitsOnly;
         }
     }
 }

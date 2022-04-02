@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Netbank.DataAccess
+﻿namespace NetBank.DataAccess.Context
 {
     using Microsoft.EntityFrameworkCore;
     using NetBank.Models;

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ReminderApp.Domain
+namespace ReminderApp.Domain.Entities
 {
    public class Category
    {

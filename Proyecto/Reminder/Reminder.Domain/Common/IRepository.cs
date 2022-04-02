@@ -13,7 +13,7 @@ namespace Reminder.Domain.Common
 
         IEnumerable<T> GetAll();
 
-        IEnumerable<T> GetById(int id);
+        T GetById(int id);
 
         IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
 

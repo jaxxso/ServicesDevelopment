@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Reminder.Domain.Common;
+using System;
 
-namespace Reminder.Domain
+namespace Reminder.Domain.Entities
 {
-    public class Reminder
+    public class Reminder: EntityBase
     {
-        public int Int { get; set; }
-
         public int CategoryId { get; set; }
 
         public string Description { get; set; }

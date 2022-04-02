@@ -1,25 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Reminder.Domain.Common;
+using System;
 
-namespace Reminder.App.Domain
+namespace Reminder.Domain.Entities
 {
-    public class Reminder
-    { 
-        public int Ind { get; set; }
+    public class Reminder: EntityBase
+    {
         public int CategoryId { get; set; }
-        public string Description { get; set; }
-        public DateTime StartDate { get; set; }
-        public string CronExpression { get; set; }
-        public int? NumberOfTimes { get; set; }
-        public bool? Enabled { get; set; }
 
+        public string Description { get; set; }
+
+        public DateTime StartDate { get; set; }
+
+        public string CronExpression { get; set; }
+
+        public int? NumberOfTimes { get; set; }
+
+        public bool? Enabled { get; set; }
 
         public virtual Category Category { get; set; }
 
+
     }
-
-
 }

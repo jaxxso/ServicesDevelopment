@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ReminderApp.Api
+namespace Reminder.Api
 {
    public class Startup
    {

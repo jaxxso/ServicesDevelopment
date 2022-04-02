@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ReminderApp.Domain.Common;
+using System;
 
-namespace ReminderApp.Domain
+namespace ReminderApp.Domain.Entities
 {
-   public class Reminder
+   public class Reminder : EntityBase
    {
-      public int Ind { get; set; }
+      //public int Ind { get; set; }
       public int CategoryId { get; set; }
+
       public string Description { get; set; }
       public DateTime StartDate { get; set; }
       public string CronExpression { get; set; }

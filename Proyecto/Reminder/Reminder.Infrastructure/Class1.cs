@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReminderApp.Application
+namespace Reminder.Infrastructure
 {
    public class Class1
    {

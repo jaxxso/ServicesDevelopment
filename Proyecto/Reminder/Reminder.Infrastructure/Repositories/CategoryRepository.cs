@@ -15,9 +15,5 @@ namespace Reminder.Infrastructure.Repositories
         {
         }
     
-        public IEnumerable<Reminder.Domain.Entities.Reminder> FindRemindersByCategory(Category category)
-        {
-            return base.Find(c => c.Cate)
-        }
     }
 }

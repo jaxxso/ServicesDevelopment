@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Reminder.Domain.Common;
+using Reminder.Domain.Interfaces;
 using Reminder.Infrastructure.Context;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Reminder.Infrastructure.Common
             _appDbContext = appDbContext;
         }
 
-        public void Add(T entity)
+        public int Add(T entity)
         {
             /*
                 Instruccion de EntityFrameworkCore para agregar un dato de tipo T en el conjunto de datos
@@ -28,6 +29,7 @@ namespace Reminder.Infrastructure.Common
             _appDbContext.Set<T>().Add(entity);
             //Instruccion de EntityFrameworkCore para guardar los cambios en el DbSet del objeto AppDbContext
             _appDbContext.SaveChanges();
+            return entity.Id;
         }
 
         public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)

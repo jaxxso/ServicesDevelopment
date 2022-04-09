@@ -1,4 +1,5 @@
-﻿using Reminder.Infrastructure.Common;
+﻿using Reminder.Domain.Entities;
+using Reminder.Infrastructure.Common;
 using Reminder.Infrastructure.Context;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,9 @@ namespace Reminder.Infrastructure.Repositories
 
         }
 
+        public IEnumerable<Reminder.Domain.Entities.Reminder> FindRemindersByCategory(Category category)
+        {
+            return base.Find(c => c.Category.Equals(category));
+        }
     }
 }

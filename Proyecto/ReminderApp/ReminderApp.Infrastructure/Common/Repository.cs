@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ReminderApp.Domain.Common;
+using ReminderApp.Domain.Interfaces.Repository;
 using ReminderApp.Infrastructure.Context;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,11 @@ namespace ReminderApp.Infrastructure.Common
          _appDbContext = appDbContext;
       }
 
-      public void Add(T entity)
+      public int Add(T entity)
       {
          _appDbContext.Set<T>().Add(entity);
          _appDbContext.SaveChanges();
+         return entity.Id;
       }
 
       public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)

@@ -5,7 +5,6 @@ namespace ReminderApp.Domain.Entities
 {
    public class Reminder : EntityBase
    {
-      //public int Ind { get; set; }
       public int CategoryId { get; set; }
 
       public string Description { get; set; }

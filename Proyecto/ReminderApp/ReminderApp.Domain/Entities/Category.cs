@@ -10,7 +10,6 @@ namespace ReminderApp.Domain.Entities
          Reminders = new HashSet<Reminder>();
       }
 
-      // public int Id { get; set; }
       public string Description { get; set; }
 
       public virtual ICollection<Reminder> Reminders { get; set; }

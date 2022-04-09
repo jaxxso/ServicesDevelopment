@@ -1,12 +1,13 @@
-﻿using System;
+﻿using ReminderApp.Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace ReminderApp.Domain.Common
+namespace ReminderApp.Domain.Interfaces.Repository
 {
    public interface IRepository<T> where T : EntityBase
    {
-      void Add(T entity);
+      int Add(T entity);
 
       IEnumerable<T> GetAll();
 

@@ -8,7 +8,6 @@ namespace ReminderApp.Domain.Entities
 {
     public partial class Reminder : EntityBase
     {
-        public int Id { get; set; }
         public int CategoryId { get; set; }
         public string Description { get; set; }
         public DateTime StartDate { get; set; }

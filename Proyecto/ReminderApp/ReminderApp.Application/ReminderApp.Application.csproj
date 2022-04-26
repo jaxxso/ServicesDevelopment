@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ReminderApp.Domain\ReminderApp.Domain.csproj" />
-    <ProjectReference Include="..\ReminderApp.Infrastructure\ReminderApp.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

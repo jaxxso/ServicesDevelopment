@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ReminderApp.Domain\ReminderApp.Domain.csproj" />
+    <ProjectReference Include="..\ReminderApp.Application\ReminderApp.Application.csproj" />
   </ItemGroup>
 
 </Project>

@@ -8,18 +8,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using ReminderApp.Application.Interfaces.Usecases;
-using ReminderApp.Application.UseCases;
-using ReminderApp.Domain.Entities;
-using ReminderApp.Domain.Interfaces.Repository;
-using ReminderApp.Infrastructure.Context;
-using ReminderApp.Infrastructure.Repositories;
+using NetBank.BusinessLogic;
+using NetBank.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ReminderApp.Api
+namespace NetBank.Api
 {
    public class Startup
    {
@@ -38,11 +34,10 @@ namespace ReminderApp.Api
          services.AddControllers();
          services.AddSwaggerGen(c =>
          {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Reminder.Api", Version = "v1" });
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "NetBank.Api", Version = "v1" });
          });
-
-         services.AddScoped<CategoryRepository>();
-         services.AddScoped<IGetAllCategoryUseCase, GetAllCategoryUseCase>();
+         services.AddScoped<ReportedCardDA>();
+         services.AddScoped<ReportedCardBL>();
       }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +47,7 @@ namespace ReminderApp.Api
          {
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Reminder.Api v1"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NetBank.Api v1"));
          }
 
          app.UseHttpsRedirection();

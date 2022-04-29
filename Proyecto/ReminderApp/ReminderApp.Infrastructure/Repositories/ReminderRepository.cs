@@ -1,4 +1,5 @@
 ﻿using ReminderApp.Domain.Entities;
+using ReminderApp.Domain.Interfaces.Repositories;
 using ReminderApp.Infrastructure.Common;
 using ReminderApp.Infrastructure.Context;
 using System;
@@ -9,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace ReminderApp.Infrastructure.Repositories
 {
-    public class ReminderRepository : Repository<Reminder>
+    public class ReminderRepository : Repository<Reminder>, IReminderRepository
     {
         public ReminderRepository(AppDBContext appDBContext) : base(appDBContext)
         {
         }
 
-        public IEnumerable<Reminder> FindReminderCategory(Category category)
+        public Task<IEnumerable<Reminder>> FindReminderCategory(int id)
         {
-            return base.Find(c => c.Category.Equals(category));
+            return (Task<IEnumerable<Reminder>>)base.FindAsync(c => c.CategoryId.Equals(id));    
         }
     }
 } 

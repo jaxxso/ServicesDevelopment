@@ -14,44 +14,46 @@ namespace ReminderApp.Infrastructure.Common
     public class Repository<T> : IRepository<T> where T : EntityBase
     {
 
-        private readonly AppDBContext _appDBContext;
-        public Repository(AppDBContext appDBContext)
+        private readonly AppDBContext _appDbContext;
+
+
+        public Repository(AppDBContext appDbContext)
         {
-            _appDBContext = appDBContext;
+            _appDbContext = appDbContext;
         }
 
-        public void add(T entity)
+        public async Task AddAsync(T entity)
         {
-            _appDBContext.Set<T>().Add(entity);
-            _appDBContext.SaveChanges();
-            throw new NotImplementedException();
+            _appDbContext.Set<T>().Add(entity);
+            await _appDbContext.SaveChangesAsync();
         }
 
-        public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
+        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
         {
-            return _appDBContext.Set<T>().Where(predicate).AsEnumerable();
+            return await _appDbContext.Set<T>().Where(predicate).ToListAsync<T>();
         }
 
-        public IEnumerable<T> GetAll()
+
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
-            return _appDBContext.Set<T>().AsEnumerable();
+            return await _appDbContext.Set<T>().ToListAsync<T>();
         }
 
-        public T GetById(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            return _appDBContext.Set<T>().Find(id);
+            return await _appDbContext.Set<T>().FindAsync(id);
         }
 
-        public void Remove(T entity)
+        public async Task RemoveAsync(T entity)
         {
-            _appDBContext.Set<T>().Remove(entity);
-            _appDBContext.SaveChanges();
+            _appDbContext.Set<T>().Remove(entity);
+            await _appDbContext.SaveChangesAsync();
         }
 
-        public void Update(T entity)
+        public async Task UpdateAsync(T entity)
         {
-            _appDBContext.Entry(entity).State = EntityState.Modified;
-            _appDBContext.SaveChanges();
+            _appDbContext.Entry(entity).State = EntityState.Modified;
+            await _appDbContext.SaveChangesAsync();
         }
     }
 }

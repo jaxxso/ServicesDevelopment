@@ -1,13 +1,14 @@
 ﻿using ReminderApp.Domain.Entities;
-using ReminderApp.Infraestucture.Context;
+using ReminderApp.Domain.Interfaces.Repositories;
 using ReminderApp.Infrastructure.Common;
-
+using ReminderApp.Infrastructure.Context;
+using System.Collections.Generic;
 
 namespace ReminderApp.Infrastructure.Repositories
 {
-    public class CategoryRepository : Repository<Category>
+    public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
-        public CategoryRepository(AppDBContext appDbContext) : base(appDbContext)
+        public CategoryRepository(AppDbContext appDbContext) : base(appDbContext)
         {
         }
     }

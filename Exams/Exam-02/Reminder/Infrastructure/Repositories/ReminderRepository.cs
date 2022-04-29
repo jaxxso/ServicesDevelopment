@@ -10,5 +10,15 @@ namespace Infrastructure.Repositories
         public ReminderRepository(AppDbContext appDbContext) : base(appDbContext)
         {
         }
+        public async Task  DeleteAllByCategoryId(int id)
+        {
+         var categoria = _appDbContext.Reminders.Where(x => x.CategoryId == id).ToList();
+         _appDbContext.RemoveRange(categoria);
+         await _appDbContext.SaveChangesAsync();
+        }
+        public Task<List<Reminder>> GetAllBycategoryId(int id)
+        {
+            return Task.FromResult(_appDbContext.Reminders.Where(x => x.CategoryId == id).ToList());
+        }
     }
 }

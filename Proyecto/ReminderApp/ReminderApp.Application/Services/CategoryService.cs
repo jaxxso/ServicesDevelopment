@@ -36,16 +36,16 @@ namespace ReminderApp.Application.Services
 
         public async Task<Category> GetByIdAsync(int id)
         {
-            var person = await _categoryRepository.GetByIdAsync(id);
+            var reminder = await _categoryRepository.GetByIdAsync(id);
 
-            // Validte If Exist
-            return person;
+            // Validate If Exist
+            return reminder;
         }
 
         public async Task RemoveAsync(int id)
         {
-            var person = await _categoryRepository.GetByIdAsync(id);
-            await _categoryRepository.RemoveAsync(person);
+            var reminder = await _categoryRepository.GetByIdAsync(id);
+            await _categoryRepository.RemoveAsync(reminder);
         }
 
         public async Task UpdateAsync(int id, Category entity)

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReminderApp.Application.Interfaces;
 using ReminderApp.Domain.Entities;
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -38,6 +40,12 @@ namespace ReminderApp.Api.Controllers
         {
             await _reminderService.AddAsync(person);
             return Ok();
+        }
+
+        [HttpGet("Categoy/{id}")]
+        public async Task<IActionResult> Find(Expression<Func<Reminder, bool>> predicate)
+        {
+            return Ok(await _reminderService.FindAsync(predicate));
         }
 
         // PUT api/<PeopleController>/5

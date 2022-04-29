@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace ReminderApp.Api.Controllers
 {
-   [Route("api/[controller]")]
-   [ApiController]
-   public class CategoryController : ControllerBase
-   {
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CategoryController : ControllerBase
+    {
         private readonly ICategoryService _categoryService;
         public CategoryController(ICategoryService categoryService)
         {
@@ -31,6 +31,8 @@ namespace ReminderApp.Api.Controllers
         {
             return Ok(await _categoryService.GetByIdAsync(id));
         }
+
+        
 
         // POST api/<PeopleController>
         [HttpPost]

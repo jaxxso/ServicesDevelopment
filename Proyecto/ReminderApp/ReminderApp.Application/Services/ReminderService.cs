@@ -29,6 +29,11 @@ namespace ReminderApp.Application.Services
             return await _reminderRepository.FindAsync(predicate);
         }
 
+        public async Task<IEnumerable<Reminder>> FindIdAsync(int id)
+        {
+            return await _reminderRepository.FindIdAsync(id);
+        }
+
         public async Task<IEnumerable<Reminder>> GetAllAsync()
         {
             return await _reminderRepository.GetAllAsync();

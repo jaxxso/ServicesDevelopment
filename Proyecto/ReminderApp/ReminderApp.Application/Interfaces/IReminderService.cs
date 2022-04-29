@@ -18,6 +18,8 @@ namespace ReminderApp.Application.Interfaces
 
         public Task<IEnumerable<Reminder>> FindAsync(Expression<Func<Reminder, bool>> predicate);
 
+        public Task<IEnumerable<Reminder>> FindIdAsync(int id);
+
         public Task UpdateAsync(int id, Reminder entity);
 
         public Task RemoveAsync(int id);

@@ -12,9 +12,14 @@ namespace ReminderApp.Infrastructure.Repositories
       {
       }
 
-      public IEnumerable<Reminder> FindRemindersByCategory(Category category)
-      {
-         return (IEnumerable<Reminder>)base.FindAsync(c => c.Category.Equals(category));
-      }
+      //public IEnumerable<Reminder> FindRemindersByCategory(Category category)
+      //{
+        // return (IEnumerable<Reminder>)base.FindAsync(c => c.Category.Equals(category));
+      //}
+      
+      public IEnumerable<Reminder> FindReminderByCategoryId(int id)
+        {
+            return (IEnumerable<Reminder>)base.FindAsync(c => c.CategoryId.Equals(id));
+        }
    }
 }

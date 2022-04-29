@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace ReminderApp.Domain.Entities
 {
-    public partial class Category : EntityBase
+    public partial class Category: EntityBase
     {
         public Category()
         {

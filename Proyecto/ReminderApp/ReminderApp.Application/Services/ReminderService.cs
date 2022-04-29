@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ReminderApp.Application.Services
 {
-    public class ReminderService : IReminderService
+    public class ReminderService: IReminderService
     {
         private readonly IReminderRepository _reminderRepository;
 
@@ -38,7 +38,7 @@ namespace ReminderApp.Application.Services
         {
             var reminder = await _reminderRepository.GetByIdAsync(id);
 
-            // Validate If Exist
+            // Validte If Exist
             return reminder;
         }
 

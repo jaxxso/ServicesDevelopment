@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ReminderApp.Domain.Common
 {
-    public abstract class EntityBase
-    {
+     public abstract class EntityBase
+    {   
         [Key]
         public int id { get; set; }
     }

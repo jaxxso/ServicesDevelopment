@@ -12,7 +12,7 @@ namespace ReminderApp.Domain.Entities
         public string Description { get; set; }
         public DateTime StartDate { get; set; }
         public string CronExpression { get; set; }
-        public int? NumberOfTime { get; set; }
+        public int? NumberOfTimes { get; set; }
         public bool? Enabled { get; set; }
 
         public virtual Category Category { get; set; }

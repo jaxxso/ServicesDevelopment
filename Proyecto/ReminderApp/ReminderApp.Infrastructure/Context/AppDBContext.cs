@@ -15,6 +15,6 @@ namespace ReminderApp.Infrastructure.Context
 
       public DbSet<Category> Categories { get; set; }
 
-      public DbSet<Reminder> Concepts { get; set; }
+      public DbSet<Reminder> Reminders { get; set; }
    }
 }

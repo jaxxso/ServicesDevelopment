@@ -15,24 +15,24 @@ namespace Api.Controllers
     public class RemindersController : ControllerBase
     {
         private readonly AppDbContext _context;
-
-        public RemindersController(AppDbContext context)
+        private readonly ReminderService _reminderService;
+        public RemindersController(ReminderService reminderService)
         {
-            _context = context;
+            _reminderService = reminderService;
         }
 
         // GET: api/Reminders
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Reminder>>> GetReminders()
         {
-            return await _context.Reminders.ToListAsync();
+            return await _reminderService.Reminders.ToListAsync();
         }
 
         // GET: api/Reminders/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Reminder>> GetReminder(int id)
         {
-            var reminder = await _context.Reminders.FindAsync(id);
+            var reminder = await _reminderService.Reminders.FindAsync(id);
 
             if (reminder == null)
             {
@@ -79,7 +79,7 @@ namespace Api.Controllers
         public async Task<ActionResult<Reminder>> PostReminder(Reminder reminder)
         {
             _context.Reminders.Add(reminder);
-            await _context.SaveChangesAsync();
+            await _reminderService.SaveChangesAsync();
 
             return CreatedAtAction("GetReminder", new { id = reminder.Id }, reminder);
         }
@@ -95,14 +95,23 @@ namespace Api.Controllers
             }
 
             _context.Reminders.Remove(reminder);
-            await _context.SaveChangesAsync();
+            await _reminderService.SaveChangesAsync();
 
             return NoContent();
         }
-
+        [HttpDelete("Category/{id}")]
+        public async Task DeleteAllByCategoryId(int id)
+        {
+         await _reminderService.DeleteByCategoryId(id);
+        }
+         [HttpDelete("Category/{id}")]
+        public async Task GetAllByCategoryId(int id)
+        {
+         await _reminderService.GetAllByCategoryId(id);
+        }
         private bool ReminderExists(int id)
         {
-            return _context.Reminders.Any(e => e.Id == id);
+            return _reminderService.Reminders.Any(e => e.Id == id);
         }
     }
 }

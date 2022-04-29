@@ -12,13 +12,16 @@ namespace Infrastructure.Repositories
         }
         public async Task  DeleteAllByCategoryId(int id)
         {
-         var categoria = _appDbContext.Reminders.Where(x => x.CategoryId == id).ToList();
-         _appDbContext.RemoveRange(categoria);
-         await _appDbContext.SaveChangesAsync();
+         var categories = _appDbContext.Reminders.Where(aux => aux.CategoryId == id).ToList();
+         foreach (var item in categories)
+         {
+            _appDbContext.Remove(item);
+            await _appDbContext.SaveChangesAsync();
+         }
         }
         public Task<List<Reminder>> GetAllBycategoryId(int id)
         {
-            return Task.FromResult(_appDbContext.Reminders.Where(x => x.CategoryId == id).ToList());
+            return Task.FromResult(_appDbContext.Reminders.Where(aux => aux.CategoryId == id).ToList());
         }
     }
 }

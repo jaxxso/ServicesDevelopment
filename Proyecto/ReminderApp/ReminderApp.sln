@@ -1,23 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.1.32210.238
+VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{66DF1965-C3D3-4B77-8225-EA42AC7FF3F2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{D86EB56A-92B6-459A-8191-2781439408BA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{2E672324-A2DB-426C-89B8-E236B2704D92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApp.Api", "ReminderApp.Api\ReminderApp.Api.csproj", "{4AAD344C-BBE8-4807-91E5-AC7D2A19B948}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{0192F6B4-8FEE-4066-808E-1892991CA552}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{C135AE8D-D1B3-4254-90B9-CB2B41F5D749}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{A9099660-8087-40C9-A0E3-575B30FD5600}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2882EE62-86DC-46EE-A141-8CB55D22B7F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApp.Domain", "ReminderApp.Domain\ReminderApp.Domain.csproj", "{A6989159-6C25-4C21-91B2-0D65236D36BA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastucture", "Infrastucture", "{C6C252F5-F9E9-4EF9-B014-C20101C36ABC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApp.Application", "ReminderApp.Application\ReminderApp.Application.csproj", "{53065976-E129-4CB3-AB58-EED466A49DD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApp.Application", "ReminderApp.Application\ReminderApp.Application.csproj", "{820F0B44-A8C9-4EED-A625-1107F9A907C1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApp.Infrastructure", "ReminderApp.Infrastructure\ReminderApp.Infrastructure.csproj", "{69813800-D194-4624-ACCB-93B8E117F3FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApp.Domain", "ReminderApp.Domain\ReminderApp.Domain.csproj", "{8730A944-F471-440E-B369-17178BA177BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApp.Api", "ReminderApp.Api\ReminderApp.Api.csproj", "{96F0A620-ECE5-4198-84C1-B5EA9F231F92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApp.Infrastucture", "ReminderApp.Infrastucture\ReminderApp.Infrastucture.csproj", "{1C805E9F-D7BC-4ACD-B3D9-30A9DB9E0D89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,33 +25,33 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A6989159-6C25-4C21-91B2-0D65236D36BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A6989159-6C25-4C21-91B2-0D65236D36BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A6989159-6C25-4C21-91B2-0D65236D36BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A6989159-6C25-4C21-91B2-0D65236D36BA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{53065976-E129-4CB3-AB58-EED466A49DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53065976-E129-4CB3-AB58-EED466A49DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53065976-E129-4CB3-AB58-EED466A49DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53065976-E129-4CB3-AB58-EED466A49DD8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{69813800-D194-4624-ACCB-93B8E117F3FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{69813800-D194-4624-ACCB-93B8E117F3FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{69813800-D194-4624-ACCB-93B8E117F3FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{69813800-D194-4624-ACCB-93B8E117F3FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96F0A620-ECE5-4198-84C1-B5EA9F231F92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96F0A620-ECE5-4198-84C1-B5EA9F231F92}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96F0A620-ECE5-4198-84C1-B5EA9F231F92}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96F0A620-ECE5-4198-84C1-B5EA9F231F92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AAD344C-BBE8-4807-91E5-AC7D2A19B948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AAD344C-BBE8-4807-91E5-AC7D2A19B948}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AAD344C-BBE8-4807-91E5-AC7D2A19B948}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AAD344C-BBE8-4807-91E5-AC7D2A19B948}.Release|Any CPU.Build.0 = Release|Any CPU
+		{820F0B44-A8C9-4EED-A625-1107F9A907C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{820F0B44-A8C9-4EED-A625-1107F9A907C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{820F0B44-A8C9-4EED-A625-1107F9A907C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{820F0B44-A8C9-4EED-A625-1107F9A907C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8730A944-F471-440E-B369-17178BA177BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8730A944-F471-440E-B369-17178BA177BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8730A944-F471-440E-B369-17178BA177BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8730A944-F471-440E-B369-17178BA177BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C805E9F-D7BC-4ACD-B3D9-30A9DB9E0D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C805E9F-D7BC-4ACD-B3D9-30A9DB9E0D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C805E9F-D7BC-4ACD-B3D9-30A9DB9E0D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C805E9F-D7BC-4ACD-B3D9-30A9DB9E0D89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A6989159-6C25-4C21-91B2-0D65236D36BA} = {66DF1965-C3D3-4B77-8225-EA42AC7FF3F2}
-		{53065976-E129-4CB3-AB58-EED466A49DD8} = {2E672324-A2DB-426C-89B8-E236B2704D92}
-		{69813800-D194-4624-ACCB-93B8E117F3FC} = {0192F6B4-8FEE-4066-808E-1892991CA552}
-		{96F0A620-ECE5-4198-84C1-B5EA9F231F92} = {A9099660-8087-40C9-A0E3-575B30FD5600}
+		{4AAD344C-BBE8-4807-91E5-AC7D2A19B948} = {D86EB56A-92B6-459A-8191-2781439408BA}
+		{820F0B44-A8C9-4EED-A625-1107F9A907C1} = {C135AE8D-D1B3-4254-90B9-CB2B41F5D749}
+		{8730A944-F471-440E-B369-17178BA177BC} = {2882EE62-86DC-46EE-A141-8CB55D22B7F2}
+		{1C805E9F-D7BC-4ACD-B3D9-30A9DB9E0D89} = {C6C252F5-F9E9-4EF9-B014-C20101C36ABC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {40741770-7C24-4161-9643-C11E1C7035B8}
+		SolutionGuid = {0F352084-D116-4CE8-9056-DD06F0D99252}
 	EndGlobalSection
 EndGlobal

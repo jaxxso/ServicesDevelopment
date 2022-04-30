@@ -66,6 +66,15 @@ namespace ReminderAPP.Application.Services
         {
             throw new NotImplementedException();
         }
+        public async Task<IEnumerable<Reminder>> GetAllByCategoryIdAsync(int id)
+        {
+            return await _reminderRepository.GetAllByCategoryIdAsync(id);
+        }
+
+        public async Task RemoveAllByCategoryIdAsync(int id)
+        {
+            await _reminderRepository.RemoveAllByCategoryIdAsync(id);
+        }
 
     }
 }

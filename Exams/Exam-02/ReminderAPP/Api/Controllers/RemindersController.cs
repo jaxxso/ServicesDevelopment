@@ -61,6 +61,19 @@ namespace ReminderAPP.Api.Controllers
             await _reminderService.RemoveAsync(id);
             return Ok();
         }
+        [HttpGet("category/{id}")]
+        public async Task<IActionResult> GetAllByCategoryId(int id)
+        {
+            return Ok(await _reminderService.GetAllByCategoryIdAsync(id));
+        }
+
+        // DELETE api/v1/<RemindersController>/category/5
+        [HttpDelete("category/{id}")]
+        public async Task<IActionResult> DeleteAllByCategoryId(int id)
+        {
+            await _reminderService.RemoveAllByCategoryIdAsync(id);
+            return Ok();
+        }
 
 
 

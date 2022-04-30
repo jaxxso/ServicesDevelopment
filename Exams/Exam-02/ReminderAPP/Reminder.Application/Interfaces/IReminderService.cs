@@ -20,5 +20,9 @@ namespace ReminderAPP.Application.Interfaces
 
         public Task RemoveAsync(int id);
 
+        public Task<IEnumerable<Reminder>> GetAllByCategoryIdAsync(int categoryId);
+
+        public Task RemoveAllByCategoryIdAsync(int categoryId);
+
     }
 }

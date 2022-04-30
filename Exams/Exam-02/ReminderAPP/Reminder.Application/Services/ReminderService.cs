@@ -61,5 +61,10 @@ namespace ReminderAPP.Application.Services
         {
             return await _reminderRepository.getAllByCategoryId(Id);
         }
+
+        public Task<IEnumerable<Category>> AddAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

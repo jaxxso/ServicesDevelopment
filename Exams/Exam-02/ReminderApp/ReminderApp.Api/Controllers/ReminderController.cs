@@ -10,7 +10,7 @@ using ReminderApp.Domain.Entities;
 
 namespace ReminderApp.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class ReminderController : ControllerBase
     {
@@ -27,6 +27,13 @@ namespace ReminderApp.Api.Controllers
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _reminderService.GetAllAsync());
+        }
+
+        //Get api/<PeopleController/5
+        [HttpGet("Category/{id}")]
+        public async Task<IActionResult> GetAllByCateID(int id)
+        {
+            return Ok(await _reminderService.GetAllByCateId(id));
         }
 
         // GET api/<PeopleController>/5
@@ -68,11 +75,6 @@ namespace ReminderApp.Api.Controllers
             return Ok();
         }
 
-        //Get api/<PeopleController/5
-        [HttpGet("Category/{id}")]
-        public async Task<IActionResult> GetAllByCateID(int id)
-        {
-            return Ok(await _reminderService.GetAllByCateId(id));
-        }
+
     }
 }

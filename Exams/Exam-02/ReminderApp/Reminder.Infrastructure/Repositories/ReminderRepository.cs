@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Reminder.Infrastructure.Repositories
 {
-    public class ReminderRepository: Repository<ReminderApp> IReminderRepository
+    public class ReminderRepository : Repository<ReminderApp>, IReminderRepository
     {
         public ReminderRepository(AppDbContext appDbContext) : base(appDbContext)
         {

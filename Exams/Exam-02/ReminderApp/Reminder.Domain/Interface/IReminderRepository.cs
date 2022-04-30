@@ -11,6 +11,6 @@ namespace Reminder.Domain.Interface
 {
     public interface IReminderRepository : IRepository<ReminderApp>
     {
-        Task AddAsync(ReminderApp entity);
+        
     }
 }

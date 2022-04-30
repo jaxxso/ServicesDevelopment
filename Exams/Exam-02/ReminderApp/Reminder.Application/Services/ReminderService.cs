@@ -16,7 +16,7 @@ namespace Reminder.Application.Services
 
         public ReminderService(IReminderRepository reminderRepository)
         {
-            reminderRepository = reminderRepository;
+            _reminderRepository = reminderRepository;
         }
 
         public async Task AddAsync(ReminderApp entity)
@@ -34,19 +34,14 @@ namespace Reminder.Application.Services
             return await _reminderRepository.GetAllAsync();
         }
 
-        public Task GetByIdAsync(int id)
+        public async Task GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            await _reminderRepository.GetByIdAsync(id);
         }
 
-        public IReminderService GetReminderRepository()
+        public async Task UpdateAsync(ReminderApp entity)
         {
-            return _reminderRepository;
-        }
-
-        public Task UpdateAsync(ReminderApp entity)
-        {
-            throw new NotImplementedException();
+            await _reminderRepository.UpdateAsync(entity);
         }
     }
 }

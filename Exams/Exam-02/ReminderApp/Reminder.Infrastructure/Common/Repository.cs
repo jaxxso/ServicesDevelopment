@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Reminder.Domain.Entities;
-using Reminder.Domain.Common;
 using Reminder.Infrastructure.Context;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Reminder.Infrastructure.Common
 {
-    public class Repository<T> : IRepository where T : EntityBase
+    public class Repository<T> : IRepository<T> where T : EntityBase
     {
         private readonly AppDbContext _appDbContext;
 
@@ -54,4 +53,4 @@ namespace Reminder.Infrastructure.Common
         }
     }
 }
-}
+

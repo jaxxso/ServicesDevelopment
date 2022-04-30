@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataBase\**" />
+    <Content Remove="DataBase\**" />
+    <EmbeddedResource Remove="DataBase\**" />
+    <None Remove="DataBase\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.16">
       <PrivateAssets>all</PrivateAssets>
@@ -15,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="DataBase\" />
+    <ProjectReference Include="..\Reminder.Application\Reminder.Application.csproj" />
+    <ProjectReference Include="..\Reminder.Infrastructure\Reminder.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

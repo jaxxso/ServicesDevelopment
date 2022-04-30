@@ -9,8 +9,6 @@ namespace Reminder.Domain.Entities
 {
     public class ReminderApp : EntityBase
     { 
-        [Key]
-        public int Id { get; set; }
         [Required]
         public int CategoryId { get; set; }
         [Required]
@@ -21,7 +19,6 @@ namespace Reminder.Domain.Entities
         public string CreonExpression { get; set; }
         public int NumberOfTimes { get; set; }
         public bool Enabled { get; set; }
-
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Reminder.Domain.Entities;
+using Reminder.Infrastructure.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,6 @@ namespace Reminder.Domain.Interface
 {
     public interface ICategoryRepository : IRepository<Category>
     {
-        Task AddAsync(Category entity);
-        Task<IEnumerable<Category>> GetAllAsync();
-        Task RemoveAsync(object category);
+
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Reminder.Application.Interfaces
 {
-    internal interface IReminderService
+    public interface IReminderService
     {
         Task AddAsync(ReminderApp entity);
         Task<IEnumerable<ReminderApp>> FindAsync(Expression<Func<ReminderApp, bool>> predicate);

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Reminder.Infrastructure.Repositories
 {
-    public class CategoryRepository : Repository<Category> ICategoryRepository
+    public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
         public CategoryRepository(AppDbContext appDbContext) : base(appDbContext)
         {

@@ -24,11 +24,6 @@ namespace ReminderApp.Application.Services
             await _categoryRepository.AddAsync(entity);
         }
 
-        public async Task<IEnumerable<Category>> FindAsync(Expression<Func<Category, bool>> predicate)
-        {
-            return await _categoryRepository.FindAsync(predicate);
-        }
-
         public async Task<IEnumerable<Category>> GetAllAsync()
         {
             return await _categoryRepository.GetAllAsync();

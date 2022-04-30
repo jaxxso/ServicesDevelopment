@@ -30,10 +30,7 @@ namespace ReminderApp.Infrastructure.Common
          return await _appDbContext.Set<T>().Where(predicate).ToListAsync<T>();
       }
 
-        public async Task<IEnumerable<T>> FindIdAsync(int id)
-        {
-            return await _appDbContext.Set<T>().ToListAsync<T>();
-        }
+
         public async Task<IEnumerable<T>> GetAllAsync()
       {
          return await _appDbContext.Set<T>().ToListAsync<T>();

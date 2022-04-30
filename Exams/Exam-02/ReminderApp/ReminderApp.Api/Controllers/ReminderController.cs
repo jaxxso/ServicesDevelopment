@@ -44,12 +44,6 @@ namespace ReminderApp.Api.Controllers
             return Ok();
         }
 
-        // GET api/<ReminderController>/ByCategory/5
-        //[HttpGet("ByCategory/{id}")]
-        //public async Task<IActionResult> Find(Expression<Func<Reminder, bool>> predicate)
-        //{
-          //  return Ok(await _reminderService.FindAsync(predicate));
-        //}
 
         // GET api/<ReminderController>/ByCategory/5
         [HttpGet("ByCategoryId/{id}")]

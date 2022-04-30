@@ -16,7 +16,6 @@ namespace ReminderApp.Application.Interfaces
 
         public Task<Category> GetByIdAsync(int id);
 
-        public Task<IEnumerable<Category>> FindAsync(Expression<Func<Category, bool>> predicate);
 
         public Task UpdateAsync(int id, Category entity);
 

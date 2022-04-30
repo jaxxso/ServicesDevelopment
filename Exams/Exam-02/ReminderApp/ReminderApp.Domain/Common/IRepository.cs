@@ -16,10 +16,6 @@ namespace ReminderApp.Domain.Common
 
         public Task<T> GetByIdAsync(int id);
 
-        public Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate);
-
-        public Task<IEnumerable<T>> FindIdAsync(int id);
-
         public Task UpdateAsync(T entity);
 
         public Task RemoveAsync(T entity);

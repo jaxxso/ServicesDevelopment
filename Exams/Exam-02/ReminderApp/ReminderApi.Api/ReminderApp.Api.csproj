@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ReminderApi.Application\ReminderApi.Application.csproj" />
-    <ProjectReference Include="..\ReminderApi.Infrastructure\ReminderApi.Infrastructure.csproj" />
+    <ProjectReference Include="..\ReminderApi.Application\ReminderApp.Application.csproj" />
+    <ProjectReference Include="..\ReminderApi.Infrastructure\ReminderApp.Infrastructure.csproj" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

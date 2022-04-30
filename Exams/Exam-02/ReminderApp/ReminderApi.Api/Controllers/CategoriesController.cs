@@ -12,7 +12,7 @@ using ReminderApi.Infrastructure.Context;
 
 namespace ReminderApi.Api.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/category")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApi.Api", "ReminderApi.Api\ReminderApi.Api.csproj", "{06BD6E91-CA93-4D4A-8634-9C6632C8935A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApp.Api", "ReminderApi.Api\ReminderApp.Api.csproj", "{06BD6E91-CA93-4D4A-8634-9C6632C8935A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApi.Domain", "ReminderApi.Domain\ReminderApi.Domain.csproj", "{4C64C687-401E-45CA-923F-E24FD4A9D204}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApp.Domain", "ReminderApi.Domain\ReminderApp.Domain.csproj", "{4C64C687-401E-45CA-923F-E24FD4A9D204}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApi.Infrastructure", "ReminderApi.Infrastructure\ReminderApi.Infrastructure.csproj", "{BA4D263D-2FA5-4BB3-BE05-3678D2813886}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApp.Infrastructure", "ReminderApi.Infrastructure\ReminderApp.Infrastructure.csproj", "{BA4D263D-2FA5-4BB3-BE05-3678D2813886}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApi.Application", "ReminderApi.Application\ReminderApi.Application.csproj", "{0EDEE8A5-DED1-4E5C-B54C-F025C6F32781}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderApp.Application", "ReminderApi.Application\ReminderApp.Application.csproj", "{0EDEE8A5-DED1-4E5C-B54C-F025C6F32781}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Info", "Database Info", "{C8B1F912-B7BD-41B8-B7D0-2054646C6961}"
 EndProject

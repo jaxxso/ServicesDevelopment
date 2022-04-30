@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ReminderApi.Domain\ReminderApi.Domain.csproj" />
+    <ProjectReference Include="..\ReminderApi.Domain\ReminderApp.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 ﻿using Reminder.Domain.Entities;
+using Reminder.Domain.Interface;
 using Reminder.Infrastructure.Common;
 using Reminder.Infrastructure.Context;
 using System;
@@ -9,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Reminder.Infrastructure.Repositories
 {
-    public class ReminderRepository: Repository<ReminderApp>, IReminderRepository
+    public class CategoryRepository : Repository<Category> ICategoryRepository
     {
-        public ReminderRepository(AppDbContext appDbContext) : base(appDbContext)
+        public CategoryRepository(AppDbContext appDbContext) : base(appDbContext)
         {
         }
     }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Domain.Entities;
 using Infrastructure.Context;
+using Application.Interfaces;
 
 namespace Api.Controllers
 {
@@ -23,16 +24,16 @@ namespace Api.Controllers
 
         // GET: api/Reminders
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Reminder>>> GetReminders()
+        public async Task<ActionResult<IEnumerable<Reminder>>> GetAllAsync()
         {
-            return await _reminderService.Reminders.ToListAsync();
+            return await _reminderService.GetAllAsync.ToListAsync();
         }
 
         // GET: api/Reminders/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Reminder>> GetReminder(int id)
         {
-            var reminder = await _reminderService.Reminders.FindAsync(id);
+            var reminder = await _reminderService.GetByIdAsync.FindAsync(id);
 
             if (reminder == null)
             {
@@ -52,7 +53,7 @@ namespace Api.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(reminder).State = EntityState.Modified;
+            _reminderService.Entry(reminder).State = EntityState.Modified;
 
             try
             {
@@ -78,7 +79,7 @@ namespace Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Reminder>> PostReminder(Reminder reminder)
         {
-            _context.Reminders.Add(reminder);
+            _reminderService.AddAsync.Add(reminder);
             await _reminderService.SaveChangesAsync();
 
             return CreatedAtAction("GetReminder", new { id = reminder.Id }, reminder);
@@ -88,13 +89,13 @@ namespace Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteReminder(int id)
         {
-            var reminder = await _context.Reminders.FindAsync(id);
+            var reminder = await _reminderService.RemoveAsync.FindAsync(id);
             if (reminder == null)
             {
                 return NotFound();
             }
 
-            _context.Reminders.Remove(reminder);
+            _context.RemoveAsync.Remove(reminder);
             await _reminderService.SaveChangesAsync();
 
             return NoContent();
@@ -111,7 +112,7 @@ namespace Api.Controllers
         }
         private bool ReminderExists(int id)
         {
-            return _reminderService.Reminders.Any(e => e.Id == id);
+            return _reminderService.FindAsync.Any(e => e.Id == id);
         }
     }
 }

@@ -10,10 +10,10 @@ namespace Api.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class categoryController : ControllerBase
     {
         private readonly ICategoryService _CategoryService;
-        public CategoriesController(ICategoryService CategoryService)
+        public categoryController(ICategoryService CategoryService)
         {
             _CategoryService = CategoryService;
         }

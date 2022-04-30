@@ -13,11 +13,11 @@ namespace Api.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class RemindersController : ControllerBase
+    public class reminderController : ControllerBase
     {
         private readonly AppDbContext _context;
         private readonly IReminderService _reminderService;
-        public RemindersController(IReminderService reminderService)
+        public reminderController(IReminderService reminderService)
         {
             _reminderService = reminderService;
         }

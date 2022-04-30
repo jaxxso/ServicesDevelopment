@@ -10,12 +10,9 @@ namespace ReminderAPP.Domain.Interface.Repositories
 {
     public interface IReminderRepository : IRepository<Reminder>
     {
-        public Task<IEnumerable<Reminder>> getAllByCategoryId(int Id);
+        public Task<IEnumerable<Reminder>> GetAllByCategoryIdAsync(int categoryId);
 
-        public Task DeleteByCategoryId(int Id);
-        public Task<IEnumerable<Reminder>> GetAllByCategoryIdAsync(int id);
-
-        public Task RemoveAllByCategoryIdAsync(int id);
+        public Task RemoveAllByCategoryIdAsync(int categoryId);
 
     }
 

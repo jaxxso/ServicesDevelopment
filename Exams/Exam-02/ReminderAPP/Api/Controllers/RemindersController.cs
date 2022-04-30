@@ -8,20 +8,19 @@ using System.Linq.Expressions;
 using System;
 
 
+
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ReminderAPP.Api.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/reminder")]
     [ApiController]
     public class RemindersController : ControllerBase
     {
         private readonly IReminderService _reminderService;
-        private readonly ICategoryService _categoryService;
         public RemindersController(IReminderService reminderService, ICategoryService categoryService)
         {
             _reminderService = reminderService;
-            _categoryService = categoryService;
         }
 
         // GET: api/<PeopleController>
@@ -74,6 +73,8 @@ namespace ReminderAPP.Api.Controllers
             await _reminderService.RemoveAllByCategoryIdAsync(id);
             return Ok();
         }
+        
+
 
 
 

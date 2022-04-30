@@ -70,5 +70,14 @@ namespace ReminderAPP.Infrastructure.Common
         {
             throw new NotImplementedException();
         }
+        public Task RemoveRangeAsync(IEnumerable<Reminder> remindersToRemove)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RemoveRangeAsync(IEnumerable<T> entitiesToRemove)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

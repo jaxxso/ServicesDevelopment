@@ -15,9 +15,11 @@ namespace ReminderApp.Api.Controllers
     public class ReminderController : ControllerBase
     {
         private readonly IReminderService _reminderService;
-        public ReminderController(IReminderService reminderService)
+        private readonly ICategoryService _categoryService;
+        public ReminderController(IReminderService reminderService, ICategoryService categoryService)
         {
             _reminderService = reminderService;
+            _categoryService = categoryService;
         }
 
         // GET: api/<PeopleController>
@@ -63,5 +65,14 @@ namespace ReminderApp.Api.Controllers
             await _reminderService.RemoveAsync(id);
             return Ok();
         }
+
+        // DELETE api/<PeopleController>/5
+        [HttpDelete("Category/{id}")]
+        public async Task<IActionResult> DeleteByCategory(int id)
+        {
+            await _categoryService.RemoveAsync(id);
+            return Ok();
+        }
+
     }
 }

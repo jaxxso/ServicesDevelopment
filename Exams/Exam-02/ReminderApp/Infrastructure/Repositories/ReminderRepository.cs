@@ -2,13 +2,18 @@
 using Domain.Interfaces.Repositories;
 using Infrastructure.Common;
 using Infrastructure.Context;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
     public class ReminderRepository : Repository<Reminder>, IReminderRepository
     {
+        private readonly AppDbContext _appDbContext;
         public ReminderRepository(AppDbContext appDbContext) : base(appDbContext)
         {
+            _appDbContext = appDbContext;
         }
         public async Task  DeleteAllByCategoryId(int id)
         {

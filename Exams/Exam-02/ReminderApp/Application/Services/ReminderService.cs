@@ -53,12 +53,12 @@ namespace Application.Services
         }
          public async Task DeleteAllByCategoryIdAsync(int id)
         {
-            await _reminderRepository.DeleteAllByCategoryIdAsync(id);
+            await _reminderRepository.DeleteAllByCategoryId(id);
 
         }
         public async Task<IEnumerable<Reminder>> GetAllBycategoryIdAsync(int id)
         {
-            return await _reminderRepository.GetAllBycategoryIdAsync(id);
+            return await _reminderRepository.GetAllBycategoryId(id);
              
         }
     }

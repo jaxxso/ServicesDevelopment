@@ -16,24 +16,24 @@ namespace Api.Controllers
     public class RemindersController : ControllerBase
     {
         private readonly AppDbContext _context;
-        private readonly ReminderService _reminderService;
-        public RemindersController(ReminderService reminderService)
+        private readonly IReminderService _reminderService;
+        public RemindersController(IReminderService reminderService)
         {
             _reminderService = reminderService;
         }
 
         // GET: api/Reminders
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Reminder>>> GetAllAsync()
+        public async Task<IActionResult> GetAllAsync()
         {
-            return await _reminderService.GetAllAsync.ToListAsync();
+            return Ok(await _reminderService.GetAllAsync());
         }
 
         // GET: api/Reminders/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Reminder>> GetReminder(int id)
         {
-            var reminder = await _reminderService.GetByIdAsync.FindAsync(id);
+            var reminder = await _reminderService.GetByIdAsync(id);
 
             if (reminder == null)
             {
@@ -48,30 +48,8 @@ namespace Api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutReminder(int id, Reminder reminder)
         {
-            if (id != reminder.Id)
-            {
-                return BadRequest();
-            }
-
-            _reminderService.Entry(reminder).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ReminderExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            await _reminderService.UpdateAsync(id, reminder);
+            return Ok();
         }
 
         // POST: api/Reminders
@@ -79,40 +57,28 @@ namespace Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Reminder>> PostReminder(Reminder reminder)
         {
-            _reminderService.AddAsync.Add(reminder);
-            await _reminderService.SaveChangesAsync();
-
-            return CreatedAtAction("GetReminder", new { id = reminder.Id }, reminder);
+            await _reminderService.AddAsync(reminder);
+            return Ok();
         }
 
         // DELETE: api/Reminders/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteReminder(int id)
         {
-            var reminder = await _reminderService.RemoveAsync.FindAsync(id);
-            if (reminder == null)
-            {
-                return NotFound();
-            }
-
-            _context.RemoveAsync.Remove(reminder);
-            await _reminderService.SaveChangesAsync();
-
-            return NoContent();
+            await _reminderService.RemoveAsync(id);
+            return Ok();
         }
         [HttpDelete("Category/{id}")]
         public async Task DeleteAllByCategoryId(int id)
         {
-         await _reminderService.DeleteByCategoryId(id);
+         await _reminderService.DeleteAllByCategoryIdAsync(id);
         }
-         [HttpDelete("Category/{id}")]
-        public async Task GetAllByCategoryId(int id)
+        
+        [HttpGet("Category/{id}")]
+        public async Task<IEnumerable<Reminder>> GetAllByCategoryId(int id)
         {
-         await _reminderService.GetAllByCategoryId(id);
+          return await _reminderService.GetAllBycategoryIdAsync(id);
         }
-        private bool ReminderExists(int id)
-        {
-            return _reminderService.FindAsync.Any(e => e.Id == id);
-        }
+
     }
 }

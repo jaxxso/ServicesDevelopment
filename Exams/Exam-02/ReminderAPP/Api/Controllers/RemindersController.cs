@@ -73,11 +73,5 @@ namespace ReminderAPP.Api.Controllers
             await _reminderService.RemoveAllByCategoryIdAsync(id);
             return Ok();
         }
-        
-
-
-
-
-
     }
 }

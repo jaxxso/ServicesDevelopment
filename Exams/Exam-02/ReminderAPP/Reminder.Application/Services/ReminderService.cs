@@ -53,10 +53,6 @@ namespace ReminderAPP.Application.Services
             await _reminderRepository.UpdateAsync(entity);
         }
 
-        public Task<IEnumerable<Category>> AddAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
         public async Task<IEnumerable<Reminder>> GetAllByCategoryIdAsync(int id)
         {
             return await _reminderRepository.GetAllByCategoryIdAsync(id);

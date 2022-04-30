@@ -65,5 +65,10 @@ namespace ReminderAPP.Infrastructure.Common
         {
             throw new NotImplementedException();
         }
+
+        public Task<IEnumerable<Reminder>> GetAllRemindersByCategoryId(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

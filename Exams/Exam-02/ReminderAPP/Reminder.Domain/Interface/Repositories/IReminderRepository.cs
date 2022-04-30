@@ -13,6 +13,8 @@ namespace ReminderAPP.Domain.Interface.Repositories
         public Task<IEnumerable<Reminder>> getAllByCategoryId(int Id);
 
         public Task DeleteByCategoryId(int Id);
+        Task DeleteAllRemindersByCategoryId(int id);
+        Task<IEnumerable<Reminder>> GetAllRemindersByCategoryId(int id);
     }
 
 

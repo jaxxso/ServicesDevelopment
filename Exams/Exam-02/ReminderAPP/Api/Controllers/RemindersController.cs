@@ -4,6 +4,8 @@ using ReminderAPP.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ReminderAPP.Api.Controllers;
+using System.Linq.Expressions;
+using System;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -59,13 +61,7 @@ namespace ReminderAPP.Api.Controllers
             await _reminderService.RemoveAsync(id);
             return Ok();
         }
-        [HttpDelete("Category/{id}")]
-        public async Task<IActionResult> DeleteByCategory(int id)
-        {
-            await _categoryService.RemoveAsync(id);
-            return Ok();
-        }
-        
+
 
 
 

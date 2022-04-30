@@ -19,6 +19,6 @@ namespace ReminderAPP.Application.Interfaces
         public Task UpdateAsync(int id, Reminder entity);
 
         public Task RemoveAsync(int id);
-        Task<IEnumerable<Category>> AddAsync(int id);
+
     }
 }

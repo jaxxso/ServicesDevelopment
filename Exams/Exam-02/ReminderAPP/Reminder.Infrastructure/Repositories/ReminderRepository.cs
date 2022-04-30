@@ -26,18 +26,10 @@ namespace ReminderAPP.Infrastructure.Repositories
                 await RemoveAsync(item);
             }
         }
-        public async Task<IEnumerable<Reminder>> GetAllRemindersByCategoryId(int id)
-        {
-            return await FindAsync(r => r.CategoryId == id);
-        }
 
-        public async Task DeleteAllRemindersByCategoryId(int id)
+        public Task DeleteAllRemindersByCategoryId(int id)
         {
-            var categoriesDelete = await GetAllRemindersByCategoryId(id);
-            foreach (var category in categoriesDelete)
-            {
-                await RemoveAsync(category);
-            }
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -20,5 +20,6 @@ using System.Threading.Tasks;
             public Task UpdateAsync(T entity);
 
             public Task RemoveAsync(T entity);
-        }
+        Task<IEnumerable<Reminder>> GetAllRemindersByCategoryId(int id);
+    }
     }

@@ -34,17 +34,17 @@ namespace ReminderAPP.Api.Controllers
 
         // POST api/<PeopleController>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Reminder reminder)
+        public async Task<IActionResult> Post([FromBody] Reminder reminders)
         {
-            await _reminderService.AddAsync(reminder);
+            await _reminderService.AddAsync(reminders);
             return Ok();
         }
 
         // PUT api/<PeopleController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] Reminder reminder)
+        public async Task<IActionResult> Put(int id, [FromBody] Reminder reminders)
         {
-            await _reminderService.UpdateAsync(id, reminder);
+            await _reminderService.UpdateAsync(id, reminders);
             return Ok();
         }
 

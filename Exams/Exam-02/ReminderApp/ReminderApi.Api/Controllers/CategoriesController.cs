@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ReminderApi.Api.Models;
 using ReminderApi.Application.Interfaces;
 using ReminderApi.Domain.Entities;
 using ReminderApi.Infrastructure.Context;
 
 namespace ReminderApi.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
@@ -39,26 +40,36 @@ namespace ReminderApi.Api.Controllers
 
         // POST api/<CategoriesController>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Category category)
+        public async Task<IActionResult> Post([FromBody] CategoryEntry category)
         {
-            await _categoryService.AddAsync(category);
+            await _categoryService.AddAsync(CategoryEntryToCategory(category));
             return Ok();
         }
 
-        // PUT api/<CategoriesController>/5
+        // PUT api/v1/<CategoriesController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] Category category)
+        public async Task<IActionResult> Put(int id, [FromBody] CategoryEntry category)
         {
-            await _categoryService.UpdateAsync(id, category);
+            await _categoryService.UpdateAsync(id, CategoryEntryToCategory(category));
             return Ok();
         }
 
-        // DELETE api/<CategoriesController>/5
+        // DELETE api/v1/<CategoriesController>/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             await _categoryService.RemoveAsync(id);
             return Ok();
         }
+
+        private Category CategoryEntryToCategory(CategoryEntry categoryEntry)
+        {
+            Category category = new Category();
+            category.Id = categoryEntry.Id;
+            category.Description = categoryEntry.Description;
+            return category;
+        }
+
+        
     }
 }

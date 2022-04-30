@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ReminderApp.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/reminder")]
     [ApiController]
     public class ReminderController : ControllerBase
     {
@@ -44,12 +44,6 @@ namespace ReminderApp.Api.Controllers
             return Ok();
         }
 
-        [HttpGet("Categoy/{id}")]
-        public async Task<IActionResult> Find(Expression<Func<Reminder, bool>> predicate)
-        {
-            return Ok(await _reminderService.FindAsync(predicate));
-        }
-
         // PUT api/<ReminderController>/5
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] Reminder reminder)
@@ -66,13 +60,17 @@ namespace ReminderApp.Api.Controllers
             return Ok();
         }
 
-        // DELETE api/<ReminderController>/5
-        [HttpDelete("Category/{id}")]
-        public async Task<IActionResult> DeleteByCategory(int id)
+        [HttpGet("categoy/{id}")]
+        public async Task<IEnumerable<Reminder>> GetAllRemindersByCategoryId(int id)
         {
-            await _categoryService.RemoveAsync(id);
-            return Ok();
+            return await _reminderService.GetAllRemindersByCategoryId(id);
         }
 
+        [HttpDelete("category/{id}")]
+        public async Task DeleteAllRemindersByCategoryId(int id)
+        {
+            await _reminderService.DeleteAllRemindersByCategoryId(id);
+        }
     }
 }
+

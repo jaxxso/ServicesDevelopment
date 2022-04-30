@@ -38,7 +38,7 @@ namespace ReminderApp.Application.Services
         {
             var reminder = await _reminderRepository.GetByIdAsync(id);
 
-            // Validte If Exist
+            // Validate If Exist
             return reminder;
         }
 

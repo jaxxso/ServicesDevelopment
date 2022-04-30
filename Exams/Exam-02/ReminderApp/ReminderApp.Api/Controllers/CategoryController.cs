@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ReminderApp.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/category")]
     [ApiController]
     public class CategoryController : ControllerBase
     {

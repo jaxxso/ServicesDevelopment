@@ -46,7 +46,7 @@ namespace ReminderApp.Api.Controllers
 
 
         // GET api/<ReminderController>/ByCategory/5
-        [HttpGet("ByCategoryId/{id}")]
+        [HttpGet("Category/{id}")]
         public async Task<IActionResult> FindByCategoryId(int id)
         {
             return Ok(await _reminderService.FindIdAsync(id));

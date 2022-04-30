@@ -53,5 +53,15 @@ namespace ReminderApp.Application.Services
             // Validate if Exist
             await _reminderRepository.UpdateAsync(entity);
         }
+
+        public async Task<IEnumerable<Reminder>> GetAllRemindersByCategoryId(int id)
+        {
+            return await _reminderRepository.GetAllRemindersByCategoryId(id);
+        }
+
+        public async Task DeleteAllRemindersByCategoryId(int id)
+        {
+            await _reminderRepository.DeleteAllRemindersByCategoryId(id);
+        }
     }
 }

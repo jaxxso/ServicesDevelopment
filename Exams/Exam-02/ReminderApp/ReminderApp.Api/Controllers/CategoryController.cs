@@ -18,14 +18,14 @@ namespace ReminderApp.Api.Controllers
             _categoryService = categoryService;
         }
 
-        // GET: api/<PeopleController>
+        // GET: api/<CategoryController>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _categoryService.GetAllAsync());
         }
 
-        // GET api/<PeopleController>/5
+        // GET api/<CategoryController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -33,7 +33,7 @@ namespace ReminderApp.Api.Controllers
         }
 
 
-        // POST api/<PeopleController>
+        // POST api/<CategoryController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Category reminder)
         {
@@ -41,7 +41,7 @@ namespace ReminderApp.Api.Controllers
             return Ok();
         }
 
-        // PUT api/<PeopleController>/5
+        // PUT api/<CategoryController>/5
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] Category reminder)
         {
@@ -49,7 +49,7 @@ namespace ReminderApp.Api.Controllers
             return Ok();
         }
 
-        // DELETE api/<PeopleController>/5
+        // DELETE api/<CategoryController>/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

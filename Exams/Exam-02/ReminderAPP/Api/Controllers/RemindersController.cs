@@ -16,9 +16,10 @@ namespace ReminderAPP.Api.Controllers
     {
         private readonly IReminderService _reminderService;
         private readonly ICategoryService _categoryService;
-        public RemindersController(IReminderService reminderService)
+        public RemindersController(IReminderService reminderService, ICategoryService categoryService)
         {
             _reminderService = reminderService;
+            _categoryService = categoryService;
         }
 
         // GET: api/<PeopleController>
@@ -64,6 +65,7 @@ namespace ReminderAPP.Api.Controllers
             await _categoryService.RemoveAsync(id);
             return Ok();
         }
+        
 
 
 

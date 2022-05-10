@@ -16,7 +16,7 @@ namespace Reminder.Infrastructure.Context
         }
 
         public DbSet<Category> Categories { get; set; }
-        public DbSet<ReminderApp> Reminder { get; set; }
+        public DbSet<Domain.Entities.Reminder> Reminders { get; set; }
 
         public Task<object> GetAllByCategoryIdAsync(int id)
         {

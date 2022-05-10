@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Reminder.Domain.Entities
 {
-    public class ReminderApp : EntityBase
+    public class Reminder : EntityBase
     { 
         [Required]
         public int CategoryId { get; set; }
@@ -16,7 +16,7 @@ namespace Reminder.Domain.Entities
         [Required]
         public DateTime StartDate { get; set; }
         [Required]
-        public string CreonExpression { get; set; }
+        public string CronExpression { get; set; }
         public int NumberOfTimes { get; set; }
         public bool Enabled { get; set; }
 

@@ -19,17 +19,17 @@ namespace Reminder.Application.Services
             _reminderRepository = reminderRepository;
         }
 
-        public async Task AddAsync(ReminderApp entity)
+        public async Task AddAsync(Domain.Entities.Reminder entity)
         {
             await _reminderRepository.AddAsync(entity);
         }
 
-        public async Task<IEnumerable<ReminderApp>> FindAsync(Expression<Func<ReminderApp, bool>> predicate)
+        public async Task<IEnumerable<Domain.Entities.Reminder>> FindAsync(Expression<Func<Domain.Entities.Reminder, bool>> predicate)
         {
             return await _reminderRepository.FindAsync(predicate);
         }
 
-        public async Task<IEnumerable<ReminderApp>> GetAllAsync()
+        public async Task<IEnumerable<Domain.Entities.Reminder>> GetAllAsync()
         {
             return await _reminderRepository.GetAllAsync();
         }
@@ -39,7 +39,7 @@ namespace Reminder.Application.Services
             await _reminderRepository.GetByIdAsync(id);
         }
 
-        public async Task UpdateAsync(ReminderApp entity)
+        public async Task UpdateAsync(Domain.Entities.Reminder entity)
         {
             await _reminderRepository.UpdateAsync(entity);
         }

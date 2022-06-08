@@ -9,7 +9,7 @@ using Reminder.Infrastructure.Common;
 
 namespace Reminder.Domain.Interface
 {
-    public interface IReminderRepository : IRepository<ReminderApp>
+    public interface IReminderRepository : IRepository<Entities.Reminder>
     {
         
     }

@@ -10,10 +10,10 @@ namespace Reminder.Application.Interfaces
 {
     public interface IReminderService
     {
-        Task AddAsync(ReminderApp entity);
-        Task<IEnumerable<ReminderApp>> FindAsync(Expression<Func<ReminderApp, bool>> predicate);
-        Task<IEnumerable<ReminderApp>> GetAllAsync();
+        Task AddAsync(Domain.Entities.Reminder entity);
+        Task<IEnumerable<Domain.Entities.Reminder>> FindAsync(Expression<Func<Domain.Entities.Reminder, bool>> predicate);
+        Task<IEnumerable<Domain.Entities.Reminder>> GetAllAsync();
         Task GetByIdAsync(int id);
-        Task UpdateAsync(ReminderApp entity);
+        Task UpdateAsync(Domain.Entities.Reminder entity);
     }
 }

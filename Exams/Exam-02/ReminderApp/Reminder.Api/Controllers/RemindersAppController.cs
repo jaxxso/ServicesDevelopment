@@ -23,16 +23,16 @@ namespace Reminder.Api.Controllers
 
         // GET: api/ReminderApps
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ReminderApp>>> GetReminder()
+        public async Task<ActionResult<IEnumerable<Domain.Entities.Reminder>>> GetReminder()
         {
-            return await _context.Reminder.ToListAsync();
+            return await _context.Reminders.ToListAsync();
         }
 
         // GET: api/ReminderApps/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ReminderApp>> GetReminderApp(int id)
+        public async Task<ActionResult<Domain.Entities.Reminder>> GetReminderApp(int id)
         {
-            var reminderApp = await _context.Reminder.FindAsync(id);
+            var reminderApp = await _context.Reminders.FindAsync(id);
 
             if (reminderApp == null)
             {
@@ -45,7 +45,7 @@ namespace Reminder.Api.Controllers
         // PUT: api/ReminderApps/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutReminderApp(int id, ReminderApp reminderApp)
+        public async Task<IActionResult> PutReminderApp(int id, Domain.Entities.Reminder reminderApp)
         {
             if (id != reminderApp.Id)
             {
@@ -76,9 +76,9 @@ namespace Reminder.Api.Controllers
         // POST: api/ReminderApps
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<ReminderApp>> PostReminderApp(ReminderApp reminderApp)
+        public async Task<ActionResult<Domain.Entities.Reminder>> PostReminderApp(Domain.Entities.Reminder reminderApp)
         {
-            _context.Reminder.Add(reminderApp);
+            _context.Reminders.Add(reminderApp);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetReminderApp", new { id = reminderApp.Id }, reminderApp);
@@ -88,13 +88,13 @@ namespace Reminder.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteReminderApp(int id)
         {
-            var reminderApp = await _context.Reminder.FindAsync(id);
+            var reminderApp = await _context.Reminders.FindAsync(id);
             if (reminderApp == null)
             {
                 return NotFound();
             }
 
-            _context.Reminder.Remove(reminderApp);
+            _context.Reminders.Remove(reminderApp);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -102,7 +102,7 @@ namespace Reminder.Api.Controllers
 
         private bool ReminderAppExists(int id)
         {
-            return _context.Reminder.Any(e => e.Id == id);
+            return _context.Reminders.Any(e => e.Id == id);
         }
 
         //GetAllById

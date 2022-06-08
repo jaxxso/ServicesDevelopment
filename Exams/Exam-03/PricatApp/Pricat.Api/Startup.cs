@@ -2,24 +2,17 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-
-using Microsoft.EntityFrameworkCore;
-
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-
-using ReminderApp.Api.Extensions;
-using ReminderApp.Infrastructure.Context;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ReminderApp.Api
+namespace Pricat.Api
 {
    public class Startup
    {
@@ -34,29 +27,12 @@ namespace ReminderApp.Api
       public void ConfigureServices(IServiceCollection services)
       {
 
-      services.AddDbContext<AppDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CnnStr"),
-        sqlServerOptionsAction: sqlOptions =>
-            {
-                sqlOptions.EnableRetryOnFailure();
-            }));
-
-            services.AddControllers();
-
          services.AddControllers();
-
          services.AddSwaggerGen(c =>
          {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Reminder.Api", Version = "v1" });
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pricat.Api", Version = "v1" });
          });
-
-
-            // Add Modules
-         services.AddCoreModules();
-         services.AddInfrastructureModules();
-        }
-
       }
-
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
       public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -65,7 +41,7 @@ namespace ReminderApp.Api
          {
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Reminder.Api v1"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pricat.Api v1"));
          }
 
          app.UseHttpsRedirection();

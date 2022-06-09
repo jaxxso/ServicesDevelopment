@@ -22,10 +22,10 @@ namespace People.Api
       // This method gets called by the runtime. Use this method to add services to the container.
       public void ConfigureServices(IServiceCollection services)
       {
-        var connectionString = Configuration.GetConnectionString("CnnStr");
-        services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-            services.AddControllers();
+         services.AddDbContext<AppDbContext>(options => options.UseMySql(Configuration.GetConnectionString("CnnStr")));
+
+         services.AddControllers();
          services.AddSwaggerGen(c =>
          {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "People.Api", Version = "v1" });
@@ -34,6 +34,8 @@ namespace People.Api
          // Add Modules
          services.AddCoreModules();
          services.AddInfrastructureModules();
+
+         services.AddCors();
       }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +53,12 @@ namespace People.Api
          app.UseRouting();
 
          app.UseAuthorization();
+
+         app.UseCors(options => {
+            options.WithOrigins("http://localhost:3000");
+            options.AllowAnyMethod();
+            options.AllowAnyHeader();
+         });
 
          app.UseEndpoints(endpoints =>
          {

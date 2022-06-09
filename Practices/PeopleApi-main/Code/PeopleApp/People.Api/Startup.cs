@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using People.Api.Extensions;
 using People.Infrastructure.Context;
+using System;
 
 namespace People.Api
 {
@@ -23,8 +24,9 @@ namespace People.Api
       public void ConfigureServices(IServiceCollection services)
       {
 
-         services.AddDbContext<AppDbContext>(options => options.UseSqlite("Name=PeopleDB"));
-
+         var connectionString = Configuration.GetConnectionString("PeopleDB");
+         services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+                
          services.AddControllers();
          services.AddSwaggerGen(c =>
          {

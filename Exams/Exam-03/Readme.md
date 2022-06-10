@@ -333,7 +333,7 @@ docker build -t pricatapp .
 para mas información puede consultar la siguiente [Guia](https://docs.docker.com/samples/dotnetcore/).
 
 ## Ejecute la Imagen 
-Ejecute la imageny pruebe que funcionan los EndPoints configurados.
+Ejecute la imagen y pruebe que funcionan los EndPoints configurados.
 
 ```
 docker run -d -p 8080:80 --name Pricat pricatapp

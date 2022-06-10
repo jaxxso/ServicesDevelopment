@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "T3hIkEJQdnOc0QC7WBTrhHEuCYpFtVvKhVIHqQZV5ptM4k4jF6prUJm/MnwVz3xXl1OzcXdiZTWtMfXsQR/ngw==",
+  "dgSpecHash": "2IYzf/y0HA8bDJqNzWjf1HH5j7VA82O4T1hMa9h3VBtsSBpTa8sYsB/6PoSHzH6gUnd7HEBP2Ln35dPvzM+5Qw==",
   "success": true,
   "projectFilePath": "C:\\Users\\cris-\\Documents\\GitHub\\ServicesDevelopment\\Practices\\03.Layers\\People.Api\\People.Api\\People.Api.csproj",
   "expectedPackageFiles": [
@@ -24,6 +24,9 @@
     "C:\\Users\\cris-\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
     "C:\\Users\\cris-\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\cris-\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\cris-\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.14.0\\microsoft.visualstudio.azure.containers.tools.targets.1.14.0.nupkg.sha512",
+    "C:\\Users\\cris-\\.nuget\\packages\\mysqlconnector\\1.3.13\\mysqlconnector.1.3.13.nupkg.sha512",
+    "C:\\Users\\cris-\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\5.0.4\\pomelo.entityframeworkcore.mysql.5.0.4.nupkg.sha512",
     "C:\\Users\\cris-\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.4\\sqlitepclraw.bundle_e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\cris-\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
     "C:\\Users\\cris-\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",

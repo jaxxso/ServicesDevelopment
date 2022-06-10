@@ -1,28 +1,28 @@
-# syntax=docker/dockerfile:1
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS base
+#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
+#For more information, please see https://aka.ms/containercompat
+
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
-ENV ASPNETCORE_ENVIRONMENT=Development
-ENV DOTNET_USE_POLLING_FILE_WATCHER=true  
-ENV ASPNETCORE_URLS=http://+:80  
 EXPOSE 80
+EXPOSE 443
 
-
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build  
-WORKDIR /app
-
-# Copy everything else and build
-COPY *.sln .
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+WORKDIR /src
+COPY ["People.Api/People.Api.csproj", "People.Api/"]
+COPY ["People.Application/People.Application.csproj", "People.Application/"]
+COPY ["People.Domain/People.Domain.csproj", "People.Domain/"]
+COPY ["People.Infrastructure/People.Infrastructure.csproj", "People.Infrastructure/"]
+RUN dotnet restore "People.Api/People.Api.csproj"
 COPY . .
-WORKDIR /app/People.Api
-RUN dotnet restore
+WORKDIR "/src/People.Api"
+RUN dotnet build "People.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish -c Release -o out
+RUN dotnet publish "People.Api.csproj" -c Release -o /app/publish
 
-
-# Build runtime image
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/People.Api/out .
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "People.Api.dll"]

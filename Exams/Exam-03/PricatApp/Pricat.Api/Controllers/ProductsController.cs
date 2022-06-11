@@ -20,7 +20,7 @@ namespace Pricat.Api.Controllers
         }
 
         // GET: api/<ProductsController>
-        [HttpGet]
+        [HttpGet("GET /api/v1.0/Products")]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _productService.GetAllAsync());
@@ -88,7 +88,7 @@ namespace Pricat.Api.Controllers
         }
 
         // DELETE api/v1/<ProductsController>/category/5
-        [HttpDelete("categories/{id}")]
+        [HttpDelete("DELETE /api/v1.0/Categorie")]
         public async Task<IActionResult> DeleteAllByCategoryId(int id)
         {
             await _productService.RemoveAllByCategoryIdAsync(id);

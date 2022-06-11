@@ -21,14 +21,14 @@ namespace Pricat.Api.Controllers
         }
 
         // GET: api/<CategoriesController>
-        [HttpGet]
+        [HttpGet("GET /api/v1.0/Categories")]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _categoryService.GetAllAsync());
         }
 
         // GET api/<CategoriesController>/5
-        [HttpGet("GET /api/v1.0/Categories")]
+        [HttpGet("GET /api/v1.0/Categories/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var category = await _categoryService.GetByIdAsync(id);

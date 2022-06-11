@@ -13,11 +13,7 @@ COPY ["Pricat.Domain/Pricat.Domain.csproj", "Pricat.Domain/"]
 COPY ["Pricat.Application/Pricat.Application.csproj", "Pricat.Application/"]
 COPY ["Pricat.Utilities/Pricat.Utilities.csproj", "Pricat.Utilities/"]
 RUN dotnet restore "Pricat.Api/Pricat.Api.csproj"
-COPY ["Pricat.Api/Pricat.Api.csproj", "Pricat.Api/"]
-COPY ["Pricat.Infrastructure/Pricat.Infrastructure.csproj", "Pricat.Infrastructure/"]
-COPY ["Pricat.Domain/Pricat.Domain.csproj", "Pricat.Domain/"]
-COPY ["Pricat.Application/Pricat.Application.csproj", "Pricat.Application/"]
-COPY ["Pricat.Utilities/Pricat.Utilities.csproj", "Pricat.Utilities/"]
+COPY . .
 WORKDIR "/src/Pricat.Api"
 RUN dotnet build "Pricat.Api.csproj" -c Release -o /app/build
 

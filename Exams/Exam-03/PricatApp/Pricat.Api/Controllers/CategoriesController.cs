@@ -28,7 +28,7 @@ namespace Pricat.Api.Controllers
         }
 
         // GET api/<CategoriesController>/5
-        [HttpGet("/api/v1.0/Products/{id}")]
+        [HttpGet("GET /api/v1.0/Categories")]
         public async Task<IActionResult> GetById(int id)
         {
             var category = await _categoryService.GetByIdAsync(id);
@@ -37,7 +37,7 @@ namespace Pricat.Api.Controllers
         }
 
         // POST api/<CategoriesController>
-        [HttpPost]
+        [HttpPost("POST /api/v1.0/Categories")]
         public async Task<IActionResult> Post([FromBody] Category category)
         {
             await _categoryService.AddAsync(category);
@@ -45,7 +45,7 @@ namespace Pricat.Api.Controllers
         }
 
         // PUT api/v1/<CategoriesController>/5
-        [HttpPut("/api/v1.0/Products/Category/{categoryId}")]
+        [HttpPut("PUT /api/v1.0/Categories/{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] Category category)
         {
             if (id != category.Id)
@@ -62,7 +62,7 @@ namespace Pricat.Api.Controllers
         }
 
         // DELETE api/v1/<CategoriesController>/5
-        [HttpDelete("DELETE /api/v1.0/Categories")]
+        [HttpDelete("DELETE /api/v1.0/Categories/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             if (await CategoryExist(id) != false)

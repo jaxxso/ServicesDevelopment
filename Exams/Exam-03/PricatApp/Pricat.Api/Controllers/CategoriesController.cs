@@ -1,14 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Pricat.Application.Interfaces;
 using Pricat.Domain.Entities;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Pricat.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1.0/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
@@ -65,7 +62,7 @@ namespace Pricat.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            if (await CategoryExist(id) != false)
+            if (await CategoryExist(id)!= false)
             {
                 return NotFound($"No se encontro la categoria con el id {id}");
             }

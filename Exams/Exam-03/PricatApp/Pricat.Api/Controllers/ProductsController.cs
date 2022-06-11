@@ -4,11 +4,9 @@ using Pricat.Domain.Entities;
 using System.Threading.Tasks;
 using Pricat.Utilities;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Pricat.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1.0/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -52,7 +50,7 @@ namespace Pricat.Api.Controllers
                 {
                     return Ok();
                 }
-                 return NotFound($"La categoria con el id {product.CategoryId} no existe");
+                return NotFound($"La categoria con el id {product.CategoryId} no existe");
             }
             return BadRequest("El producto no tiene un código EAN valido");
 
@@ -82,7 +80,7 @@ namespace Pricat.Api.Controllers
             if (await ProductExist(id))
             {
                 await _productService.RemoveAsync(id);
-                return Ok();                
+                return Ok();
             }
             return NotFound($"No se encontro el producto con el id {id}");
         }
@@ -94,8 +92,6 @@ namespace Pricat.Api.Controllers
             await _productService.RemoveAllByCategoryIdAsync(id);
             return Ok();
         }
-
-        // if(await ProductExist(id) == false || true)
         private async Task<bool> ProductExist(int id)
         {
             var product = await _productService.GetByIdAsync(id);

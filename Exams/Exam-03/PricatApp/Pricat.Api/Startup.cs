@@ -29,16 +29,18 @@ namespace Pricat.Api
       // This method gets called by the runtime. Use this method to add services to the container.
       public void ConfigureServices(IServiceCollection services)
       {
+         var connectionString = Configuration.GetConnectionString("CnnStr");
+         services.AddDbContext<AppDbContext>(options => options.UseMySQL(connectionString));
 
          services.AddControllers();
          services.AddSwaggerGen(c =>
          {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pricat.Api", Version = "v1" });
          });
-            var MySqlCnnStr = Configuration.GetConnectionString("CnnStr");
-            services.AddDbContext<AppDbContext>(options => options.UseMySql(MySqlCnnStr, ServerVersion.AutoDetect(MySqlCnnStr)));
-            services.AddCoreModules();
-            services.AddInfrastructureModules();
+
+         // Add Modules
+         services.AddCoreModules();
+         services.AddInfrastructureModules();
         }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

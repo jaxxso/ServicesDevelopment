@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pricat.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1.0/Categories/")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
@@ -21,14 +21,14 @@ namespace Pricat.Api.Controllers
         }
 
         // GET: api/<CategoriesController>
-        [HttpGet("GET /api/v1.0/Categories")]
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _categoryService.GetAllAsync());
         }
 
         // GET api/<CategoriesController>/5
-        [HttpGet("GET /api/v1.0/Categories/{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var category = await _categoryService.GetByIdAsync(id);
@@ -37,7 +37,7 @@ namespace Pricat.Api.Controllers
         }
 
         // POST api/<CategoriesController>
-        [HttpPost("POST /api/v1.0/Categories")]
+        [HttpPost]
         public async Task<IActionResult> Post([FromBody] Category category)
         {
             await _categoryService.AddAsync(category);
@@ -45,7 +45,7 @@ namespace Pricat.Api.Controllers
         }
 
         // PUT api/v1/<CategoriesController>/5
-        [HttpPut("PUT /api/v1.0/Categories/{id}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] Category category)
         {
             if (id != category.Id)
@@ -62,7 +62,7 @@ namespace Pricat.Api.Controllers
         }
 
         // DELETE api/v1/<CategoriesController>/5
-        [HttpDelete("DELETE /api/v1.0/Categories/{id}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             if (await CategoryExist(id) != false)

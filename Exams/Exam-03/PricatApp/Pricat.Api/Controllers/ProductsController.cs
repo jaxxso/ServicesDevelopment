@@ -8,7 +8,7 @@ using Pricat.Utilities;
 
 namespace Pricat.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1.0/Products/")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -20,28 +20,28 @@ namespace Pricat.Api.Controllers
         }
 
         // GET: api/<ProductsController>
-        [HttpGet("GET /api/v1.0/Products")]
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _productService.GetAllAsync());
         }
 
         // GET api/v1/<ProductsController>/category/5
-        [HttpGet("GET /api/v1.0/Products")]
+        [HttpGet("category/{id}")]
         public async Task<IActionResult> GetAllByCategoryId(int id)
         {
             return Ok(await _productService.GetAllByCategoryIdAsync(id));
         }
 
         // GET api/<ProductsController>/5
-        [HttpGet("GET /api/v1.0/Products/Category/{categoryId}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(await _productService.GetByIdAsync(id));
         }
 
         // POST api/<ProductsController>
-        [HttpPost("POST /api/v1.0/Products")]
+        [HttpPost]
         public async Task<IActionResult> Post([FromBody] Product product)
         {
             // Checkeo
@@ -59,7 +59,7 @@ namespace Pricat.Api.Controllers
         }
 
         // PUT api/v1/<ProductsController>/5
-        [HttpPut("PUT /api/v1.0/Products/{id}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] Product product)
         {
             if (id != product.Id)
@@ -76,7 +76,7 @@ namespace Pricat.Api.Controllers
         }
 
         // DELETE api/v1/<ProductsController>/5
-        [HttpDelete("DELETE /api/v1.0/Categorie")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             if (await ProductExist(id))
@@ -88,7 +88,7 @@ namespace Pricat.Api.Controllers
         }
 
         // DELETE api/v1/<ProductsController>/category/5
-        [HttpDelete("DELETE /api/v1.0/Categorie")]
+        [HttpDelete("category/{id}")]
         public async Task<IActionResult> DeleteAllByCategoryId(int id)
         {
             await _productService.RemoveAllByCategoryIdAsync(id);
